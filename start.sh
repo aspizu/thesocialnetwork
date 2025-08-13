@@ -12,4 +12,7 @@ if [ -f /var/run/gunicorn.pid ]; then
 fi
 uv sync
 uv pip install -e .
-uv run python -m gunicorn src.thesocialnetwork:app -b unix:/var/run/gunicorn.sock --pid /var/run/gunicorn.pid > /dev/null 2>&1 & disown
+uv run python -m gunicorn src.thesocialnetwork:app \
+  -b unix:/var/run/gunicorn.sock \
+  --log-file /var/log/gunicorn.log \
+  --pid /var/run/gunicorn.pid > /dev/null 2>&1 & disown
