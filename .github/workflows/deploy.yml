@@ -6,7 +6,7 @@ jobs:
         steps:
             - name: Trigger Deployment
               run: |
-                  sshpass -p ${{ secrets.PASSWD }} ssh -T root@116.203.129.104 << EOF
+                  sshpass -p ${{ secrets.PASSWD }} ssh -tt root@116.203.129.104 << EOF
                   cd /root/thesocialnetwork
                   git pull
                   bash start.sh >> /var/log/deploy.log 2>&1
