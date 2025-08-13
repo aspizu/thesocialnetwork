@@ -9,5 +9,6 @@ jobs:
                   sshpass -p ${{ secrets.PASSWD }} ssh -o StrictHostKeyChecking=accept-new -tt root@116.203.129.104 << EOF
                   cd /root/thesocialnetwork
                   git pull
-                  bash start.sh >> /var/log/deploy.log 2>&1
+                  bash start.sh
+                  exit
                   EOF
