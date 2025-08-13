@@ -4,7 +4,7 @@ import {useQuery} from "@tanstack/react-query"
 export function App() {
     const query = useQuery({
         queryKey: ["hello"],
-        queryFn: async () => api.hello(),
+        queryFn: api.hello,
     })
     return (
         <div className="p-4">
