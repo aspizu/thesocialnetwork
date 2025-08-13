@@ -4,12 +4,12 @@ cd frontend
 bun install
 mkdir -p /var/www/dist
 bun run build --outDir /var/www/dist
-chown -R 755 /var/www/dist
+chmod -R 755 /var/www/dist
 cd ..
 cd backend
-if [ -f /var/run/gunicorn.pid ]; then
-  kill -9 "$(< /var/run/gunicorn.pid)"
-fi
+set +e
+kill -9 "$(< /var/run/gunicorn.pid)"
+set -e
 uv sync
 uv pip install -e .
 uv run python -m gunicorn src.thesocialnetwork:app \
