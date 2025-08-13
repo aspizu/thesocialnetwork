@@ -8,7 +8,7 @@ chown -R 755 /var/www/dist
 cd ..
 cd backend
 if [ -f /var/run/gunicorn.pid ]; then
-  xargs kill < /var/run/gunicorn.pid
+  kill -9 "$(< /var/run/gunicorn.pid)"
 fi
 uv sync
 uv pip install -e .
