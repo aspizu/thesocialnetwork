@@ -2,7 +2,9 @@
 set -euo pipefail
 cd frontend
 bun install
-bun run build
+mkdir -p /var/www/dist
+bun run build --outDir /var/www/dist
+chown -R 755 /var/www/dist
 cd ..
 cd backend
 if [ -f /var/run/gunicorn.pid ]; then
