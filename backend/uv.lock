@@ -166,10 +166,6 @@ dependencies = [
     { name = "gunicorn" },
     { name = "redis", extra = ["hiredis"] },
     { name = "reproca" },
-]
-
-[package.dev-dependencies]
-dev = [
     { name = "uvicorn" },
 ]
 
@@ -178,10 +174,8 @@ requires-dist = [
     { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "redis", extras = ["hiredis"], specifier = ">=6.4.0" },
     { name = "reproca", git = "https://github.com/aspizu/reproca?branch=development" },
+    { name = "uvicorn", specifier = ">=0.35.0" },
 ]
-
-[package.metadata.requires-dev]
-dev = [{ name = "uvicorn", specifier = ">=0.35.0" }]
 
 [[package]]
 name = "typing-extensions"
